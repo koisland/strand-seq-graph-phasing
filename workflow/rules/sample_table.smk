@@ -58,10 +58,9 @@ def process_sample_sheet():
             sample_input[row.sample]['coverage'] = f'hifiasm_hifi_coverage/{row.sample}_hifiasm_hifi_coverage.tsv'
 
 
-    global SAMPLES
     SAMPLES = sorted(samples)
-    global MAP_SAMPLE_TO_INPUT
     MAP_SAMPLE_TO_INPUT = sample_input
+    return SAMPLES, MAP_SAMPLE_TO_INPUT
 
 
 def is_different_in_one_location(s1, s2):
@@ -107,4 +106,4 @@ def organize_sseq_files(ss_files, id_size = 6):
 
     return sseq_lib_dict
 
-process_sample_sheet()
+SAMPLES, MAP_SAMPLE_TO_INPUT = process_sample_sheet()

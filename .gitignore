@@ -135,3 +135,21 @@ dmypy.json
 .Rproj.user
 .Rhistory
 strand-seq-graph-phasing.Rproj
+
+# Pipeline outputs
+.snakemake/
+benchmark/
+breakpoints/
+bwa_alignments/
+fasta/
+gfa/
+haplotype_marker_counts/
+hifiasm_hifi_coverage/
+intermediate_output/
+library_ids/
+library_weights/
+log/
+rukki/
+ss/
+sseq_alignment_counts/
+yak/

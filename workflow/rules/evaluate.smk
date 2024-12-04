@@ -17,7 +17,6 @@ rule evaluation_plots:
     conda: '../envs/env_Renv.yaml'
     resources:
         mem_mb=calc_mem(16),
-        walltime=calc_walltime(1, 0)
     params:
         script = get_script_path('R', 'evaluation_plots.snakemake.R'),
         dip_regex = dip_chroms_regex,

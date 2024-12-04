@@ -1,4 +1,8 @@
 name: env_yak
+channels:
+  - conda-forge
+  - bioconda
+  - r
 dependencies:
   - seqtk>=1.4
   - yak

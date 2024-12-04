@@ -1,0 +1,9 @@
+name: env_cnt_aln
+channels:
+  - conda-forge
+  - bioconda
+  - r
+dependencies:
+    - r-base
+    - r-tidyverse
+    - bioconductor-rsamtools

@@ -1,4 +1,8 @@
 name: env_snakemake_runner
+channels:
+  - conda-forge
+  - bioconda
+  - r
 dependencies:
   # versions in mir's testing environment
   - python=3.11.0

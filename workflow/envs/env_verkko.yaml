@@ -1,3 +1,7 @@
 name: env_verkko
+channels:
+  - conda-forge
+  - bioconda
+  - r
 dependencies:
   - verkko>=1.4.1

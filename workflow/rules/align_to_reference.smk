@@ -14,12 +14,11 @@ ref_out = 'reference/'+ref_name+'.homopolymer-compressed.fasta'
 rule homopolymer_compress_ref:
     input: reference
     output: ref_out
-    params:
-        script=get_script_path('python','homopolymer_compress_fasta.py')
+    # params:
+    #     script=get_script_path('python','homopolymer_compress_fasta.py')
     conda:'../envs/env_cl.yaml'
     resources:
         mem_mb = lambda wildcards, attempt: 1024 * 16 * attempt,
-        walltime = lambda wildcards, attempt: f'{attempt*attempt:02}:59:00'
     benchmark: "benchmark/homopolymer_compress_ref.benchmark"
     shell:
         '''
@@ -35,7 +34,6 @@ rule map_unitigs_to_ref:
     conda: '../envs/env_cl.yaml'
     resources:
         mem_mb=lambda wildcards, attempt: 1024 * 96 * attempt,
-        walltime=lambda wildcards, attempt: f'{8 + attempt * attempt:02}:59:00'
     log: "log/map_unitigs_to_ref_{sample}_{ref_name}.log"
     threads: 12
     shell:
@@ -51,7 +49,6 @@ rule bandage_annotations_with_reference:
     conda: '../envs/env_Renv.yaml'
     resources:
         mem_mb=calc_mem(16),
-        walltime=calc_walltime(1,0)
     params:
         script = get_script_path('R','make_bandage_annotations.snakemake.R'),
     log: 'log/bandage_annotations_{sample}_{ref_name}.log'

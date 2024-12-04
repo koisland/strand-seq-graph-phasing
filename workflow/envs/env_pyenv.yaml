@@ -1,4 +1,8 @@
 name: env_pyenv
+channels:
+  - conda-forge
+  - bioconda
+  - r
 dependencies:
   - ipdb
   - pysam

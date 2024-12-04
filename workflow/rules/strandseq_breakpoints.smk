@@ -10,12 +10,11 @@ rule count_raw_sseq_alignments:
         fastmap = "sseq_alignment_counts/{sample}_sseq_fastmap_raw.csv"
     params:
         script = get_script_path('R', 'count_alignments.snakemake.R')
-    singularity: singularity_r_env
-    conda: '../' + conda_r_env if conda_r_env else conda_r_env # lol what I can't believe this works
+    # singularity: singularity_r_env
+    conda: '../envs/env_cnt_aln.yaml'
     threads: 1
     resources:
         mem_mb=calc_mem(32),
-        walltime=calc_walltime(1, 2)
     log: "log/count_raw_sseq_alignments_{sample}.log"
     benchmark: "benchmark/count_raw_sseq_alignments_{sample}.benchmark"
     shell:
@@ -46,7 +45,6 @@ rule locate_sseq_breakpoints:
     threads: 1
     resources:
         mem_mb=calc_mem(24),
-        walltime=calc_walltime()
     log: "log/locate_sseq_breakpoints_{sample}.log"
     benchmark: "benchmark/locate_sseq_breakpoints_{sample}.benchmark"
     shell:

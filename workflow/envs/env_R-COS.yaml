@@ -1,4 +1,8 @@
 name: env_Renv2
+channels:
+  - conda-forge
+  - bioconda
+  - r
 dependencies:
     - pip
     - liblapack
@@ -23,3 +27,4 @@ dependencies:
     - r-factominer
     - r-furrr
     - r-coop
+    - r-stringi
